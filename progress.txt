@@ -1,3 +1,19 @@
 Machine Learning A-Z™: Hands-On Python & R In Data Science
 
 Just using this doc to keep track of working on as I go.
+
+OOOOOOOOOOOOkay bunch of new stuff here.
+Looks like a lot of the code is in ipynb format, for jupyter notebooks. vscode seems to handle it well, though the course
+recommends using google colab, a web based env. Dunno about that. I would rather use vscode.
+
+So we have ipynb files and py files. The ipynb is IPythonNotebook, and it's what jupyter notebooks are saved as. This is 
+a format where you can have explanatory text, code and visualisations in one doc. It's kinda nift?
+
+Course recommends using google colab, because it doesn't involve installing/configuring anything, but I think that task
+is worth practicing anyway.
+
+Ok so you can use the ipynb files for this, or the py files. Even in the py files if you want 
+to have things ... 'cellurised' you can do that by using #%% which indicates the start of a new
+cell which can then be run individually and inspected in the python interactive window.
+
+Feels like a whole new language tbh :/
