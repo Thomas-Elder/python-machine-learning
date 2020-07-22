@@ -16,3 +16,5 @@ Course recommends using google colab, because it doesn't involve installing/conf
 Ok so you can use the ipynb files for this, or the py files. Even in the py files if you want to have things ... 'cellurised' you can do that by using #%% which indicates the start of a new cell which can then be run individually and inspected in the python interactive window.
 
 Feels like a whole new language tbh :/
+
+I've set up a separate folder for my implementations of things (doing), and this is all I'll commit. 
