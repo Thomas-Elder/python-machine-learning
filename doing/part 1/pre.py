@@ -11,6 +11,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 # Misc imports
 import os
@@ -74,3 +75,21 @@ logging.debug('Value of dependantVariable_train: %s' % (dependantVariable_train)
 
 logging.debug('Value of features_test: %s' % (features_test))
 logging.debug('Value of dependantVariable_test: %s' % (dependantVariable_test))
+
+#%% Feature scaling
+# Ok we need to scale the values so they're in a similar range. We've got salary
+# at 30000 for eg, and age at 30. StandardScalar, standardises the data.
+standardScaler = StandardScaler()
+
+# Now we don't scale the first 3 columns, as they're encoded as 1/0 already.
+features_train[:, 3:] = standardScaler.fit_transform(features_train[:, 3:])
+
+# Note here we're using the same 'fit' from the training set. We don't want to
+# scale the test set based on the test set, we want the same scaling applied to
+# the training set, applied to the test set. 
+features_test[:, 3:] = standardScaler.transform(features_test[:, 3:])
+
+#%% Check sets
+# features should now be scaled? 
+logging.debug('Value of features_train: %s' % (features_train))
+logging.debug('Value of features_test: %s' % (features_test))

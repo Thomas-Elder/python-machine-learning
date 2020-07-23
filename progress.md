@@ -18,3 +18,5 @@ Ok so you can use the ipynb files for this, or the py files. Even in the py file
 Feels like a whole new language tbh :/
 
 I've set up a separate folder for my implementations of things (doing), and this is all I'll commit. 
+
+## Day 2 Finishing data preprocessing section
