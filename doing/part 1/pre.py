@@ -10,6 +10,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
 
 # Misc imports
 import os
@@ -61,3 +62,15 @@ dependantVariable = labelEncoder.fit_transform(dependantVariable)
 #%% Check sets
 # The purchase data has been replaced with 1 or 0 for yes/no
 logging.debug('Value of dependantVariable: %s' % (dependantVariable))
+
+#%% Split the dataset into training and test sets
+# test_size is the % of data going in the test size, here 20%
+features_train, features_test, dependantVariable_train, dependantVariable_test = train_test_split(features, dependantVariable, test_size = 0.2, random_state = 1)
+
+#%% Check sets
+# We now have 4 sets, features/dependantVariable train/test
+logging.debug('Value of features_train: %s' % (features_train))
+logging.debug('Value of dependantVariable_train: %s' % (dependantVariable_train))
+
+logging.debug('Value of features_test: %s' % (features_test))
+logging.debug('Value of dependantVariable_test: %s' % (dependantVariable_test))
