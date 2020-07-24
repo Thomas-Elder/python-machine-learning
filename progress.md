@@ -20,3 +20,7 @@ Feels like a whole new language tbh :/
 I've set up a separate folder for my implementations of things (doing), and this is all I'll commit. 
 
 ## Day 2 Finishing data preprocessing section
+Implemented the preprocessing functions, comments in pre.py are pretty comprehensive about my understanding of things as I was going.
+
+## Day 3 Linear regression
+Let's get this bread.
