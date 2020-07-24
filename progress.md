@@ -24,3 +24,9 @@ Implemented the preprocessing functions, comments in pre.py are pretty comprehen
 
 ## Day 3 Linear regression
 Let's get this bread.
+
+Ok preprocessing is straightforward as there is only one independent variable and no missing data. 
+
+We use the LinearRegression class from sklearn to create a linear model based on the training data. This class uses ordinary least squares to fit the model, which is the process of calculating the sum of the square of the difference between the actual data and model data, then picking the line that has the smallest sum. 
+
+Where yi is the actual value, and y^ is the modeled value, something like: min( sum( (yi - y^)^2 ) )
