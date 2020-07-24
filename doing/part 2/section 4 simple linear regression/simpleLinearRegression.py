@@ -52,9 +52,6 @@ logging.info('Value of y_test: %s' % (y_test))
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
-# Predict test results
-y_predicted = regressor.predict(X_test)
-
 #%% Visualise training set results
 plt.scatter(X_train, y_train, color = 'red')
 plt.plot(X_train, regressor.predict(X_train), color = 'blue')
@@ -70,3 +67,10 @@ plt.title('Salary vs Experience (Test set)')
 plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
 plt.show()
+
+#%% Regression values
+logging.info('y intercept: %s' %(regressor.intercept_))
+logging.info('co-efficient: %s' %(regressor.coef_))
+
+# With these values we can see the linear regression equation is:
+# salary = 25609.89 + 9332.94 x experience
