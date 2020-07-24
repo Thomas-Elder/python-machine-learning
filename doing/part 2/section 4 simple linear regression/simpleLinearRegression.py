@@ -6,7 +6,7 @@
 
 #%% Imports
 import numpy
-import matplotlib.pyplot as pyplot
+import matplotlib.pyplot as plt
 import pandas
 
 # SciKit imports
@@ -27,8 +27,8 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 #%% Read data in 
 dataset = pandas.read_csv('Salary_Data.csv')
-X = dataset.iloc[:, 0].values
-y = dataset.iloc[:, 1].values
+X = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, -1].values
 
 logging.info('Value of X: %s' % (X))
 logging.info('Value of y: %s' % (y))
@@ -56,5 +56,17 @@ regressor.fit(X_train, y_train)
 y_predicted = regressor.predict(X_test)
 
 # Visualise training set results
+plt.scatter(X_train, y_train, color = 'red')
+plt.plot(X_train, regressor.predict(X_train), color = 'blue')
+plt.title('Salary vs Experience (Training set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.show()
 
 # Visualise test set results
+plt.scatter(X_test, y_test, color = 'red')
+plt.plot(X_train, regressor.predict(X_train), color = 'blue')
+plt.title('Salary vs Experience (Test set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.show()
