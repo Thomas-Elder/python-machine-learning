@@ -30,3 +30,5 @@ Ok preprocessing is straightforward as there is only one independent variable an
 We use the LinearRegression class from sklearn to create a linear model based on the training data. This class uses ordinary least squares to fit the model, which is the process of calculating the sum of the square of the difference between the actual data and model data, then picking the line that has the smallest sum. 
 
 Where yi is the actual value, and y^ is the modeled value, something like: min( sum( (yi - y^)^2 ) )
+
+So with the visualisation we can see the training data and regression model, and it's a good fit. We put the test data on the same model to see if it fits there too and it does. The point of this is that we pulled the test data from the set, trained the model on the rest of the data, then we check to see if the test data fits the same model. It should, because it's from the same data set. I guess if the data were smaller, or more varied this might be tougher.
