@@ -38,6 +38,9 @@ Ok so we've got a set of data to make a linear model, and it has multiple indepe
 
 Preprocessing is straightforward, no missing data, do need to encode the state information. 
 
+Feature scaling only needs to be done in simple linear regression. With multiple linear regression the 
+coefficients scale the variables as required. 
+
 Here's y_pred vs y_test, so the first value is the model predicted profit, the second is the test value.
 
 [[114664.42 105008.31]
@@ -50,3 +53,25 @@ Here's y_pred vs y_test, so the first value is the model predicted profit, the s
  [102276.66 101004.64]
  [ 58649.38  49490.75]
  [ 98272.03  97483.56]]
+
+ Ok but I forgot about dummy variable, we encoded state info into 3 columns. But tutorial mentioned that having
+ multiple variables stand in for 1 can cause issues. We want to include n - 1 dummy columns, where n is the number
+ of dummy columns. This is because if we have 3 states (eg) we could have 
+
+ca, ny, fl
+0   1   0
+1   0   0
+0   0   1
+
+We can have just as much information about the state by using 2 columns:
+ca, ny
+0   1
+1   0
+0   0
+
+In row 3 we know the state is fl because it's not the other two. 
+
+So let's see if that gets discussed further?!
+
+Ah ok, the LinearRegression class we use manages this for us. This class also handles identifying significant independent
+variables.
