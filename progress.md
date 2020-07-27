@@ -32,3 +32,21 @@ We use the LinearRegression class from sklearn to create a linear model based on
 Where yi is the actual value, and y^ is the modeled value, something like: min( sum( (yi - y^)^2 ) )
 
 So with the visualisation we can see the training data and regression model, and it's a good fit. We put the test data on the same model to see if it fits there too and it does. The point of this is that we pulled the test data from the set, trained the model on the rest of the data, then we check to see if the test data fits the same model. It should, because it's from the same data set. I guess if the data were smaller, or more varied this might be tougher.
+
+## Day 4 Multiple linear regression
+Ok so we've got a set of data to make a linear model, and it has multiple independent variables. 
+
+Preprocessing is straightforward, no missing data, do need to encode the state information. 
+
+Here's y_pred vs y_test, so the first value is the model predicted profit, the second is the test value.
+
+[[114664.42 105008.31]
+ [ 90593.16  96479.51]
+ [ 75692.84  78239.91]
+ [ 70221.89  81229.06]
+ [179790.26 191050.39]
+ [171576.92 182901.99]
+ [ 49753.59  35673.41]
+ [102276.66 101004.64]
+ [ 58649.38  49490.75]
+ [ 98272.03  97483.56]]

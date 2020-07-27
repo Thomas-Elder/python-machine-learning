@@ -38,8 +38,16 @@ X = numpy.array(columnTransformer.fit_transform(X))
 # test_size is the % of data going in the test size, here 20%
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
 
-# Feature scaling
-standardScaler = StandardScaler()
-X_train[:, :3] = standardScaler.fit_transform(X_train[:, :3])
-X_test[:, :3] = standardScaler.transform(X_test[:, :3])
+# Feature scaling? Doesn't seem necessary?
+#standardScaler = StandardScaler()
+#X_train[:, :3] = standardScaler.fit_transform(X_train[:, :3])
+#X_test[:, :3] = standardScaler.transform(X_test[:, :3])
+
+# Linear regression
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
+
+y_pred = regressor.predict(X_test)
+numpy.set_printoptions(precision=2)
+print(numpy.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
