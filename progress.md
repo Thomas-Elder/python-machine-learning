@@ -77,5 +77,8 @@ Ah ok, the LinearRegression class we use manages this for us. This class also ha
 variables.
 
 ## Day 5
-Starting with polynomical regression.
- 
+Starting with polynomial regression.
+
+Pretty straightfroward, we still use the LinearRegression class for this, we just need to set up a polynomialFeatures to pass to the LinearRegression fit function. 
+
+Now starting support vector regression. 
