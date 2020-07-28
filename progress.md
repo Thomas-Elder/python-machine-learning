@@ -75,3 +75,7 @@ So let's see if that gets discussed further?!
 
 Ah ok, the LinearRegression class we use manages this for us. This class also handles identifying significant independent
 variables.
+
+## Day 5
+Starting with polynomical regression.
+ 
