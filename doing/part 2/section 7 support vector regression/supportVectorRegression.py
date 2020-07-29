@@ -59,6 +59,3 @@ plt.title('Salary vs Job Level - SVR - High Res')
 plt.xlabel('Position level')
 plt.ylabel('Salary')
 plt.show()
-
-
-# %%
