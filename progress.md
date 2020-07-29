@@ -81,4 +81,6 @@ Starting with polynomial regression.
 
 Pretty straightfroward, we still use the LinearRegression class for this, we just need to set up a polynomialFeatures to pass to the LinearRegression fit function. 
 
-Now starting support vector regression. 
+Now starting support vector regression.
+
+I need to do some reading into why it's all called linear regression, even the polynomial one. They say in the tutorial none of the linear regression models require feature scaling, but the svr one does. 
