@@ -121,3 +121,11 @@ Seems over my head.
 - degree 6: $174192.81
 
 Also higher order polynomials are generally avoided. In this case the data looks to actually settle on a neat polynomial curve. But less convenient data would work better with lower order polynomials. Otherwise the line will wobble about fitting the data perfectly without showing the trend we're looking for. 
+
+# Day 5 still or maybe 6?
+This link is wonderfully explaining nearly all my gaps above. 
+
+https://towardsdatascience.com/polynomial-regression-bbe8b9d97491
+
+# Day 6
+Starting decision tree regression.
