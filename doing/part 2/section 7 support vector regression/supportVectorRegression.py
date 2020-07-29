@@ -12,7 +12,7 @@ from sklearn.svm import SVR
 import os
 import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-# logging.disable(logging.CRITICAL)
+logging.disable(logging.CRITICAL)
 
 # Load data
 logging.debug('cwd: %s' % (os.getcwd()))
@@ -39,7 +39,26 @@ regressor.fit(X, y)
 y_pred = regressor.predict(standardScaler_X.transform([[6.5]]))
 print(standardScaler_y.inverse_transform(y_pred)) # 170370.02
 
-# Visualise the result
+X_inv = standardScaler_X.inverse_transform(X)
+y_inv = standardScaler_y.inverse_transform(y)
+
+#%% Visualise the result
+plt.scatter(X_inv, y_inv, color = 'red')
+plt.plot(X_inv, standardScaler_y.inverse_transform(regressor.predict(X)), color = 'blue')
+plt.title('Salary vs Job Level - SVR')
+plt.xlabel('Level of Job')
+plt.ylabel('Salary')
+plt.show()
+
+#%% Visualise the high res result
+X_grid = numpy.arange(min(X_inv), max(X_inv), 0.1)
+X_grid = X_grid.reshape((len(X_grid), 1))
+plt.scatter(X_inv, y_inv, color = 'red')
+plt.plot(X_inv, standardScaler_y.inverse_transform(regressor.predict(X)), color = 'blue')
+plt.title('Salary vs Job Level - SVR - High Res')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
+plt.show()
 
 
-# Visualise the high res result
+# %%
