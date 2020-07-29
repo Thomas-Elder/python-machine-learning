@@ -83,4 +83,41 @@ Pretty straightfroward, we still use the LinearRegression class for this, we jus
 
 Now starting support vector regression.
 
-I need to do some reading into why it's all called linear regression, even the polynomial one. They say in the tutorial none of the linear regression models require feature scaling, but the svr one does. 
+I need to do some reading into why it's all called linear regression, even the polynomial one. They say in the tutorial none of the linear regression models require feature scaling, but the svr one does.
+
+Ok so I ran svr without scaling and it very much does not work. It draws a straight horizontal line. Need to do more reading to figure out exactly why that would be the case. 
+
+The default value for type of kernel used is radial basis function, or rbf. This it what I used initially. 
+
+I also then ran it with the other kernel types.
+
+### Results
+#### RBF
+170370.02
+
+#### Linear
+216903.83
+
+#### Polynomial
+197301.33
+
+#### Sigmoid
+350649.44
+
+#### Precomputed:
+Got a value error here that I'll just leave alone for now:
+"ValueError: Precomputed matrix must be a square matrix. Input is a 10x1 matrix."
+
+Seems over my head.
+
+#### Without scaling
+130001.82
+
+#### And for comparison the poynomial linear regression results
+- degree 2: $189495.11 
+- degree 3: $133259.47
+- degree 4: $158862.45
+- degree 5: $174878.08
+- degree 6: $174192.81
+
+Also higher order polynomials are generally avoided. In this case the data looks to actually settle on a neat polynomial curve. But less convenient data would work better with lower order polynomials. Otherwise the line will wobble about fitting the data perfectly without showing the trend we're looking for. 
