@@ -70,6 +70,11 @@ X_polynomial_5 = polynomialFeatures_5.fit_transform(X)
 linearRegressor_5 = LinearRegression()
 linearRegressor_5.fit(X_polynomial_5, y)
 
+polynomialFeatures_6 = PolynomialFeatures(degree=6)
+X_polynomial_6 = polynomialFeatures_6.fit_transform(X)
+linearRegressor_6 = LinearRegression()
+linearRegressor_6.fit(X_polynomial_6, y)
+
 
 #%% Visualise
 plt.scatter(X, y, color = 'red')
@@ -107,6 +112,23 @@ plt.xlabel('Level of Job')
 plt.ylabel('Salary')
 plt.show()
 
+plt.scatter(X, y, color = 'red')
+plt.plot(X, linearRegressor_6.predict(X_polynomial_6), color = 'blue')
+plt.title('Salary vs Job Level - Polynomial Linear, degree 6')
+plt.xlabel('Level of Job')
+plt.ylabel('Salary')
+plt.show()
+
+# Visualising the Polynomial Regression results (for higher resolution and smoother curve)
+X_grid = numpy.arange(min(X), max(X), 0.1)
+X_grid = X_grid.reshape((len(X_grid), 1))
+plt.scatter(X, y, color = 'red')
+plt.plot(X_grid, linearRegressor_6.predict(polynomialFeatures_6.fit_transform(X_grid)), color = 'blue')
+plt.title('Truth or Bluff (Polynomial Regression degree 6)')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
+plt.show()
+
 #%% Predict salary with different models and compare results
 y_pred_linear = linearRegressor.predict([[6.5]])
 print(y_pred_linear) # $330378.78!!
@@ -122,3 +144,6 @@ print(y_pred_polynomial_4) # $158862.45, up?
 
 y_pred_polynomial_5 = linearRegressor_5.predict(polynomialFeatures_5.fit_transform([[6.5]]))
 print(y_pred_polynomial_5) # $174878.08, upper still!?  
+
+y_pred_polynomial_6 = linearRegressor_6.predict(polynomialFeatures_6.fit_transform([[6.5]]))
+print(y_pred_polynomial_6) # 174192.81, looks to be settling in here 

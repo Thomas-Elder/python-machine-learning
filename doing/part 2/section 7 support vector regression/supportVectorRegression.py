@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import pandas
 
 from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVR
 
 # Misc imports
 import os
@@ -31,10 +32,12 @@ X = standardScaler_X.fit_transform(X)
 y = standardScaler_y.fit_transform(y)
 
 # Training the svr model
+regressor = SVR(kernel='rbf')
+regressor.fit(X, y)
 
-
-# Predict the result
-
+# Predict the result, then unscale the result 
+y_pred = regressor.predict(standardScaler_X.transform([[6.5]]))
+print(standardScaler_y.inverse_transform(y_pred)) # 170370.02
 
 # Visualise the result
 
