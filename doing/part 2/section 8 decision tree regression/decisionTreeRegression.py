@@ -25,7 +25,7 @@ y = dataset.iloc[:, -1].values
 # Scale? 
 
 # Regress
-regressor = DecisionTreeRegressor()
+regressor = DecisionTreeRegressor(random_state=0)
 regressor.fit(X, y)
 
 y_pred = regressor.predict([[6.5]])
