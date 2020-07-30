@@ -129,3 +129,7 @@ https://towardsdatascience.com/polynomial-regression-bbe8b9d97491
 
 # Day 6
 Starting decision tree regression.
+
+No need for feature scaling with DTR. Honestly a bit confused about when it's necessary and not. 
+
+This was pretty straightforward, done before watching the tutorial. Visualisation was interesting, the high res version looks stepwise, due to the way dtr works. 
