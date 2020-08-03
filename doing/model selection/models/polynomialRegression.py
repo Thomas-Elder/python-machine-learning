@@ -42,7 +42,7 @@ def modelSelection_PolynomialRegression(file: str):
 
     # Train the model
     # Set up polynomial features
-    poly = PolynomialFeatures(degree=3)
+    poly = PolynomialFeatures(degree=4)
 
     # fit the features to the X_train set, and transform that set
     X_train_poly = poly.fit_transform(X_train)

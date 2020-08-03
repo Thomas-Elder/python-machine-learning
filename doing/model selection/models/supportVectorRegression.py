@@ -24,20 +24,13 @@ def modelSelection_SupportVectorRegression(file: str):
     X = dataset.iloc[:, :-1].values
     y = dataset.iloc[:, -1].values
 
+    # Will need to transform the y set to a 2d array, as this is what the scaler accepts as a parameter
+    y = y.reshape(len(y),1)
+
     # Split into training and test set
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
-    logging.info('Len of X_train: \n{}'.format(len(X_train)))
-    logging.info('Value of X_train: \n{}'.format(X_train))
-    logging.info('Value of X_test: \n{}'.format(X_test))
-    logging.info('Len of y_train: \n{}'.format(len(y_train)))
-    logging.info('Value of y_train: \n{}'.format(y_train))
-    logging.info('Value of y_test: \n{}'.format(y_test))
-
-    # Feature scaling. Will need to transform the y set to a 2d array, as this 
-    # is what the scaler accepts as a parameter
-    #y_train = y_train.reshape(len(y),1)
-
+    # Feature scaling. 
     # We need separate scalers as they calculate the mean of the column to 
     # scale the values. We want separate means for this. X first.
     standardScaler_X_train = StandardScaler()
@@ -46,18 +39,15 @@ def modelSelection_SupportVectorRegression(file: str):
     X_test_scaled = standardScaler_X_train.transform(X_test)
 
     # Then y? Not sure here tbh
-    #standardScaler_y_train = StandardScaler()
-    #standardScaler_y_train.fit(y_train)
-    #y_train_scaled = standardScaler_y_train.transform(y_train)
+    standardScaler_y_train = StandardScaler()
+    standardScaler_y_train.fit(y_train)
+    y_train_scaled = standardScaler_y_train.transform(y_train)
 
-    logging.info('Len of X_train_scaled: \n{}'.format(len(X_train_scaled)))
-    logging.info('Value of X_train_scaled: \n{}'.format(X_train_scaled))
-
-    # Training the svr model
+    # Training the svr model on the scaled training sets
     regressor = SVR(kernel='rbf')
-    regressor.fit(X_train_scaled, y_train)
+    regressor.fit(X_train_scaled, y_train_scaled)
 
     # Predict the result, then unscale the result 
-    y_pred = regressor.predict(X_test_scaled)
+    y_pred = standardScaler_y_train.inverse_transform(regressor.predict(X_test_scaled))
 
     return r2_score(y_test, y_pred)
