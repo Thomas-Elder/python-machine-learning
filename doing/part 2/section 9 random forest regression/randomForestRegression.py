@@ -21,11 +21,11 @@ X = dataset.iloc[:, 1:-1].values
 y = dataset.iloc[:, -1].values
 
 # Regress
-regressor = RandomForestRegressor(n_estimators=100, random_state=0)
+regressor = RandomForestRegressor(n_estimators=10, random_state=0)
 regressor.fit(X, y)
 
 y_pred = regressor.predict([[6.5]])
-print('Prediction {}'.format(y_pred)) # Prediction [158300.]
+print('Prediction {}'.format(y_pred)) # Prediction [167000.]
 
 # Visualise the result
 plt.scatter(X, y, color = 'red')

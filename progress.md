@@ -135,3 +135,23 @@ No need for feature scaling with DTR. Honestly a bit confused about when it's ne
 This was pretty straightforward, done before watching the tutorial. Visualisation was interesting, the high res version looks stepwise, due to the way dtr works. 
 
 dtr prediction: $150000.00
+
+# Day 7 
+Worked through random forest regression.
+
+This creates many trees based on a random sub set of the data, then averages out the results to get the prediction.
+
+When creating the regression you can choose the number of trees to run, this was done with 10, and we got $167000, which is more reasonable than the single decision tree regression.
+
+Now on to evaluating model performance.
+
+Rsquared = 1 - SSres / SStot
+
+Where SSres is the sum the squared differences between the data and the model. 
+And SStot is the sum of the squared differences between the data and the average.
+
+So the smaller SSres, and the larger SStot, the closer to 1 R^2 becomes. A perfect model would have an R^2 of 1.
+
+Adjusted R^2 has additional parameters which take number of samples and number of independent variables into account. The more variables the lower R^2, so this works to penalise having loads of variables which don't contribute to the model.
+
+Now time to use R^2 to compare model performance on a bigger dataset.
