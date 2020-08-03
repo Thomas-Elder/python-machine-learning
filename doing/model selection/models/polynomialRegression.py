@@ -23,42 +23,37 @@ import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 # logging.disable(logging.CRITICAL)
 
-# Read data in 
-dataset = pandas.read_csv('Data.csv')
-X = dataset.iloc[:, :-1].values
-y = dataset.iloc[:, -1].values
+def modelSelection_PolynomialRegression(file: str):
+    # Read data in
+    dataset = pandas.read_csv('Data.csv')
+    X = dataset.iloc[:, :-1].values
+    y = dataset.iloc[:, -1].values
 
-logging.info('Value of X: \n{}'.format(X))
-logging.info('Value of y: \n{}'.format(y))
+    logging.info('Value of X: \n{}'.format(X))
+    logging.info('Value of y: \n{}'.format(y))
 
-# Split into training and test set
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+    # Split into training and test set
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
-logging.info('Value of X_train: \n{}'.format(X_train))
-logging.info('Value of X_test: \n{}'.format(X_test))
-logging.info('Value of y_train: \n{}'.format(y_train))
-logging.info('Value of y_test: \n{}'.format(y_test))
+    logging.info('Value of X_train: \n{}'.format(X_train))
+    logging.info('Value of X_test: \n{}'.format(X_test))
+    logging.info('Value of y_train: \n{}'.format(y_train))
+    logging.info('Value of y_test: \n{}'.format(y_test))
 
-# Train the model
-# Set up polynomial features
-poly = PolynomialFeatures(degree=3)
+    # Train the model
+    # Set up polynomial features
+    poly = PolynomialFeatures(degree=3)
 
-# fit the features to the X_train set, and transform that set
-X_train_poly = poly.fit_transform(X_train)
-# use the train fit to transform the test set
-X_test_poly = poly.transform(X_test)
+    # fit the features to the X_train set, and transform that set
+    X_train_poly = poly.fit_transform(X_train)
+    # use the train fit to transform the test set
+    X_test_poly = poly.transform(X_test)
 
-# ok now set up a regressor and pass the poly features to that
-regressor = LinearRegression()
-regressor.fit(X_train_poly, y_train)
+    # ok now set up a regressor and pass the poly features to that
+    regressor = LinearRegression()
+    regressor.fit(X_train_poly, y_train)
 
-# Predict, using the test poly set
-y_pred = regressor.predict(X_test_poly)
+    # Predict, using the test poly set
+    y_pred = regressor.predict(X_test_poly)
 
-# So we don't have a million decimals
-numpy.set_printoptions(precision=2)
-
-# This just concatenates the y_pred and y_test arrays so the values can be compared. 
-print(numpy.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
-
-print(r2_score(y_test, y_pred)) # 0.9435538032031084
+    return r2_score(y_test, y_pred)
