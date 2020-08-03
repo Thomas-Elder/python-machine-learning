@@ -165,3 +165,7 @@ Polynomial = 0.9435538032031084
 Support Vector = .9431332255808436
 Decision Tree = 0.9342783714449767
 Random Forest = 0.9628673278135129
+
+I've set up a mainpy that imports and calls these models as functions, then computes the best model based on their R^2.
+
+I just need to double check that all I've got sort of lines up with the tutorial, and maybe go over support vector regression again, still not sure on the scaling part. 
