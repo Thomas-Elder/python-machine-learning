@@ -155,3 +155,13 @@ So the smaller SSres, and the larger SStot, the closer to 1 R^2 becomes. A perfe
 Adjusted R^2 has additional parameters which take number of samples and number of independent variables into account. The more variables the lower R^2, so this works to penalise having loads of variables which don't contribute to the model.
 
 Now time to use R^2 to compare model performance on a bigger dataset.
+
+So we've got a larger dataset and we'll run all the models I know now then compare their results. 
+
+Might be neat to have a set up where all models are called from a main script that then compares results.
+
+Linear = 0.9321860060402446
+Polynomial = 0.9435538032031084
+Support Vector = .9431332255808436
+Decision Tree = 0.9342783714449767
+Random Forest = 
