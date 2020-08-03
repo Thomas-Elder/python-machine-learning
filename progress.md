@@ -162,7 +162,7 @@ Might be neat to have a set up where all models are called from a main script th
 
 Linear = 0.9321860060402446
 Polynomial = 0.9435538032031084
-Support Vector = .9431332255808436
+Support Vector = 0.9431332255808436
 Decision Tree = 0.9342783714449767
 Random Forest = 0.9628673278135129
 
