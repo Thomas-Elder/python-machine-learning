@@ -25,7 +25,7 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 
 def modelSelection_PolynomialRegression(file: str):
     # Read data in
-    dataset = pandas.read_csv('Data.csv')
+    dataset = pandas.read_csv(file)
     X = dataset.iloc[:, :-1].values
     y = dataset.iloc[:, -1].values
 

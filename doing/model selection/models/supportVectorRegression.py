@@ -20,7 +20,7 @@ def modelSelection_SupportVectorRegression(file: str):
 
     # Load data
     logging.debug('cwd: %s' % (os.getcwd()))
-    dataset = pandas.read_csv('Data.csv')
+    dataset = pandas.read_csv(file)
     X = dataset.iloc[:, :-1].values
     y = dataset.iloc[:, -1].values
 

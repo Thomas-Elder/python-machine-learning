@@ -47,7 +47,4 @@ def modelSelection_LinearRegression(file: str):
     # Predict
     y_pred = regressor.predict(X_test)
 
-    # Print
-    print(r2_score(y_test, y_pred)) # 0.9321860060402446
-
     return r2_score(y_test, y_pred)
