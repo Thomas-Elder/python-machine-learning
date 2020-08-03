@@ -27,8 +27,6 @@ y = dataset.iloc[:, -1].values
 # Split into training and test set
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
-# Scale? 
-
 # Regress
 regressor = DecisionTreeRegressor(random_state=0)
 regressor.fit(X_train, y_train)
