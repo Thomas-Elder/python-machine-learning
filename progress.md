@@ -169,3 +169,8 @@ Random Forest = 0.9628673278135129
 I've set up a mainpy that imports and calls these models as functions, then computes the best model based on their R^2.
 
 I just need to double check that all I've got sort of lines up with the tutorial, and maybe go over support vector regression again, still not sure on the scaling part. 
+
+# Day 8
+Moving on to part 3, classification now. So the gist is we've been working with a dependent variable that's a number so far, what if it's a category?
+
+Probably just going to get through the first lecture today. 
