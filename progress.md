@@ -174,3 +174,6 @@ I just need to double check that all I've got sort of lines up with the tutorial
 Moving on to part 3, classification now. So the gist is we've been working with a dependent variable that's a number so far, what if it's a category?
 
 Probably just going to get through the first lecture today. 
+
+# Day 9
+Logistic Regression, let's get it.
