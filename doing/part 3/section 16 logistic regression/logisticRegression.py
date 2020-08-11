@@ -8,6 +8,7 @@ import pandas
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, accuracy_score
 
 # Misc imports
 import os
@@ -45,3 +46,12 @@ numpy.set_printoptions(precision=2)
 print(numpy.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
 print('y_pred_single:{}'.format(y_pred_single))
+
+# Create confusion matrix
+cm = confusion_matrix(y_test, y_pred)
+print(cm)
+# [[65  3] - 65 correct nobuy predictions, 3 incorrect
+# [ 8 24]] - 8 incorrect buy predictions, 24 correct
+
+acc = accuracy_score(y_test, y_pred)
+print(acc) # 0.89 - number of correct predictions divided by total number of predictions, so 89% correct.
