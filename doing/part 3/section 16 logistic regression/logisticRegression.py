@@ -22,20 +22,26 @@ X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
 # Split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
 
 # Scale
 standardScaler = StandardScaler()
-X_train = standardScaler.fit_transform(X_train)
-X_test = standardScaler.transform(X_test)
+X_train_scaled = standardScaler.fit_transform(X_train)
+X_test_scaled = standardScaler.transform(X_test)
 
 # Model
-model = LogisticRegression()
-model.fit(X_train, y_train)
+model = LogisticRegression(random_state=0)
+model.fit(X_train_scaled, y_train)
 
-# Predict
-y_pred = model.predict(X_test)
+# Predict range
+y_pred = model.predict(X_test_scaled)
+
+# Predict single value
+x_single = standardScaler.transform([[30, 87000]])
+y_pred_single = model.predict(x_single)
 
 # Compare results
 numpy.set_printoptions(precision=2)
 print(numpy.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
+
+print('y_pred_single:{}'.format(y_pred_single))
