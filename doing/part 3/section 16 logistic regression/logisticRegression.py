@@ -45,7 +45,7 @@ y_pred_single = model.predict(x_single)
 numpy.set_printoptions(precision=2)
 print(numpy.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
-print('y_pred_single:{}'.format(y_pred_single))
+print('y_pred_single:{}'.format(y_pred_single)) # predicted 0, no buy, correct
 
 # Create confusion matrix
 cm = confusion_matrix(y_test, y_pred)
