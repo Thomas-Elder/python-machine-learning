@@ -1,5 +1,9 @@
 #! python3
 
+# Ok so we have data on people who did or didn't buy an SUV.
+# The dependent var is whether or not they purchased, 0 or 1. The features are 
+# their age and salary.
+
 #%% Imports
 import numpy
 import matplotlib.pyplot as plt
