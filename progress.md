@@ -216,5 +216,14 @@ knn had a confusion matrix of:
 [[64  4] - 64 correct nobuy predictions, 4 incorrect
 [ 3 29]] - 3 incorrect buy predictions, 29 correct
 
-
 And an accuracy of 0.93, so 4% better than logistic regression.
+
+Support vector machine works similarly to SVR in regression, in that we're looking at the data points closer together, and finding a classification line with the maximum margin between that line and the closest vectors. 
+
+This line is called the max margin hyperplane, while we're visualising it here as a line, with more features this line becomes a hyperplane of many dimensions. 
+
+I tried out SVM before watching the lecture, and got these results:
+[[66  2] - 66 correct nobuy predictions, 2 incorrect
+[ 8 24]] - 8 incorrect buy predictions, 24 correct
+
+Accuracy 0.9 - number of correct predictions divided by total number of predictions, so 90% correct.
