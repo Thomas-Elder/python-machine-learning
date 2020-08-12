@@ -177,3 +177,17 @@ Probably just going to get through the first lecture today.
 
 # Day 9
 Logistic Regression, let's get it.
+
+Ok I implemented this, but feels pretty shallow at the moment, found a solid article that has helped:
+https://machinelearningmastery.com/logistic-regression-for-machine-learning/
+
+Here's the logistic function, it maps any value to a value between 0 and 1 (exclusive):
+    1 / (1 + e^-value)
+
+    Where e is the base of the natural logarithms (Euler’s number or the EXP() function in your spreadsheet) and value is the actual numerical value that you want to transform. Below is a plot of the numbers between -5 and 5 transformed into the range 0 and 1 using the logistic function.
+
+Here is the regression equation:
+
+    y = e^(b0 + b1*x) / (1 + e^(b0 + b1*x))
+
+# Day 10
