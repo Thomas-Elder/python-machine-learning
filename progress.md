@@ -190,9 +190,31 @@ Here is the regression equation:
 
     y = e^(b0 + b1*x) / (1 + e^(b0 + b1*x))
 
+While this looks wobbly, it still results in linear predictions. In the visualisations you can see that the model draws a straight line through the features and assigns 0/1 based off  that. 
+
+The visualisation is created by drawing pixels in the colour predicted by the model, red for nobuy/0 and green for buy/1, then adds dots for the actual data. So you can see a few green data points on the red side, and vv. 
+
+Logistic regression had a confusion matrix of
+[[65  3] - 65 correct nobuy predictions, 3 incorrect
+[ 8 24]] - 8 incorrect buy predictions, 24 correct
+
+You can see all of these incorrect/correct points on the test set visualisation.
+
+And an accuracy of 0.89
+This is the number of correct predictions divided by total number of predictions, so 89% correct.
+
 # Day 10
 K nearest neighbor classification
 Step 1 - choose a number for k (number of neighbours, often 5)
 Step 2 - take the k nearest neighbours of the new data point according to euclidean distance
 Step 3 - among those k neighbours, how many fall into each category
 Step 4 - assign the new data point to the category where we counted the most neighbours
+
+Same visualisation used for knn, takes a while to run. 
+
+knn had a confusion matrix of:
+[[64  4] - 64 correct nobuy predictions, 4 incorrect
+[ 3 29]] - 3 incorrect buy predictions, 29 correct
+
+
+And an accuracy of 0.93, so 4% better than logistic regression.
