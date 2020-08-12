@@ -4,7 +4,7 @@
 
 Just using this doc to keep track of working on as I go.
 
-## Day 1 - Set up/Exploration
+# Day 1 - Set up/Exploration
 OOOOOOOOOOOOkay bunch of new stuff here.
 
 Looks like a lot of the code is in ipynb format, for jupyter notebooks. vscode seems to handle it well, though the course recommends using google colab, a web based env. Dunno about that. I would rather use vscode.
@@ -19,10 +19,10 @@ Feels like a whole new language tbh :/
 
 I've set up a separate folder for my implementations of things (doing), and this is all I'll commit. 
 
-## Day 2 Finishing data preprocessing section
+# Day 2 Finishing data preprocessing section
 Implemented the preprocessing functions, comments in pre.py are pretty comprehensive about my understanding of things as I was going.
 
-## Day 3 Linear regression
+# Day 3 Linear regression
 Let's get this bread.
 
 Ok preprocessing is straightforward as there is only one independent variable and no missing data. 
@@ -33,7 +33,7 @@ Where yi is the actual value, and y^ is the modeled value, something like: min( 
 
 So with the visualisation we can see the training data and regression model, and it's a good fit. We put the test data on the same model to see if it fits there too and it does. The point of this is that we pulled the test data from the set, trained the model on the rest of the data, then we check to see if the test data fits the same model. It should, because it's from the same data set. I guess if the data were smaller, or more varied this might be tougher.
 
-## Day 4 Multiple linear regression
+# Day 4 Multiple linear regression
 Ok so we've got a set of data to make a linear model, and it has multiple independent variables. 
 
 Preprocessing is straightforward, no missing data, do need to encode the state information. 
@@ -76,7 +76,7 @@ So let's see if that gets discussed further?!
 Ah ok, the LinearRegression class we use manages this for us. This class also handles identifying significant independent
 variables.
 
-## Day 5
+# Day 5
 Starting with polynomial regression.
 
 Pretty straightfroward, we still use the LinearRegression class for this, we just need to set up a polynomialFeatures to pass to the LinearRegression fit function. 
@@ -91,29 +91,29 @@ The default value for type of kernel used is radial basis function, or rbf. This
 
 I also then ran it with the other kernel types.
 
-### Results
-#### RBF
+## Results
+### RBF
 170370.02
 
-#### Linear
+### Linear
 216903.83
 
-#### Polynomial
+### Polynomial
 197301.33
 
-#### Sigmoid
+### Sigmoid
 350649.44
 
-#### Precomputed:
+### Precomputed:
 Got a value error here that I'll just leave alone for now:
 "ValueError: Precomputed matrix must be a square matrix. Input is a 10x1 matrix."
 
 Seems over my head.
 
-#### Without scaling
+### Without scaling
 130001.82
 
-#### And for comparison the poynomial linear regression results
+### And for comparison the poynomial linear regression results
 - degree 2: $189495.11 
 - degree 3: $133259.47
 - degree 4: $158862.45
