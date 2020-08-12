@@ -191,3 +191,8 @@ Here is the regression equation:
     y = e^(b0 + b1*x) / (1 + e^(b0 + b1*x))
 
 # Day 10
+K nearest neighbor classification
+Step 1 - choose a number for k (number of neighbours, often 5)
+Step 2 - take the k nearest neighbours of the new data point according to euclidean distance
+Step 3 - among those k neighbours, how many fall into each category
+Step 4 - assign the new data point to the category where we counted the most neighbours
