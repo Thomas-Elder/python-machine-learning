@@ -69,3 +69,9 @@ logging.debug('cm_KNN: {}'.format(cm_KNN))
 logging.debug('cm_SVM: {}'.format(cm_SVM)) 
 # [[83  4]
 # [2  48]]
+
+logging.debug('Logistic Regression accuracy: {}'.format(accuracy_score(y_test, y_pred_lr))) # 0.9562043795620438
+logging.debug('K Nearest Neighbours accuracy: {}'.format(accuracy_score(y_test, y_pred_KNN))) # 0.9708029197080292
+logging.debug('Support Vector Machine accuracy: {}'.format(accuracy_score(y_test, y_pred_SVM))) # 0.9562043795620438
+
+# KNN wins this round
