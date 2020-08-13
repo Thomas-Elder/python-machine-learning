@@ -40,14 +40,21 @@ classifier_SVM = SVC(kernel='linear', random_state=0)
 
 # fit models
 classifier_lr.fit(X_train, y_train)
+classifier_KNN.fit(X_train, y_train)
+classifier_SVM.fit(X_train, y_train)
 
-# test model, the first record is [5,1,1,1,2,1,3,1,1,2], 
+# test models, the first record is [5,1,1,1,2,1,3,1,1,2], 
 # so we can pass the model these features: [5,1,1,1,2,1,3,1,1], and expect that it returns 2.
-logging.debug('classifier.predict([[5,1,1,1,2,1,3,1,1]]) == 2: {}'.format(classifier_lr.predict([[5,1,1,1,2,1,3,1,1]]) == 2)) # [ True]
-y_pred = classifier_lr.predict(X_test)
+logging.debug('classifier_lr.predict([[5,1,1,1,2,1,3,1,1]]) == 2: {}'.format(classifier_lr.predict([[5,1,1,1,2,1,3,1,1]]) == 2)) # [ True]
+logging.debug('classifier_KNN.predict([[5,1,1,1,2,1,3,1,1]]) == 2: {}'.format(classifier_KNN.predict([[5,1,1,1,2,1,3,1,1]]) == 2)) # [ True]
+logging.debug('classifier_SVM.predict([[5,1,1,1,2,1,3,1,1]]) == 2: {}'.format(classifier_SVM.predict([[5,1,1,1,2,1,3,1,1]]) == 2)) # [ True]
+
+y_pred_lr = classifier_lr.predict(X_test)
+y_pred_KNN = classifier_KNN.predict(X_test)
+y_pred_SVM = classifier_SVM.predict(X_test)
 
 # confusion matrix
-cm_lr = confusion_matrix(y_test, y_pred)
+cm_lr = confusion_matrix(y_test, y_pred_lr)
 logging.debug('cm_lr: {}'.format(cm_lr)) 
 # [[87  0]
 # [50  0]]
