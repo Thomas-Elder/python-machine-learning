@@ -76,6 +76,14 @@ logging.debug('Support Vector Machine accuracy: {}'.format(accuracy_score(y_test
 
 # Computing accuracy with k-fold cross validation
 accuracies_lr = cross_val_score(estimator=classifier_lr, X=X_train, y=y_train, cv=10)
+accuracies_KNN = cross_val_score(estimator=classifier_KNN, X=X_train, y=y_train, cv=10)
+accuracies_SVM = cross_val_score(estimator=classifier_SVM, X=X_train, y=y_train, cv=10)
 
 logging.debug('accuracies_lr.mean(): {}'.format(accuracies_lr.mean()))
 logging.debug('accuracies_lr.std(): {}'.format(accuracies_lr.std()))
+
+logging.debug('accuracies_KNN.mean(): {}'.format(accuracies_KNN.mean()))
+logging.debug('accuracies_KNN.std(): {}'.format(accuracies_KNN.std()))
+
+logging.debug('accuracies_SVM.mean(): {}'.format(accuracies_SVM.mean()))
+logging.debug('accuracies_SVM.std(): {}'.format(accuracies_SVM.std()))
