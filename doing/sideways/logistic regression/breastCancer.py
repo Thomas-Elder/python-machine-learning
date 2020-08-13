@@ -35,6 +35,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 
 # create models
 classifier_lr = LogisticRegression(random_state=0)
+classifier_KNN = KNeighborsClassifier(n_neighbors=5, p=2, metric='minkowski')
+classifier_SVM = SVC(kernel='linear', random_state=0)
 
 # fit models
 classifier_lr.fit(X_train, y_train)
