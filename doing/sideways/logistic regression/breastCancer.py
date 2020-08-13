@@ -15,7 +15,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 
 # import helpers
-from sklearn.model_selection import train_test_split  
+from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import confusion_matrix, accuracy_score
 
 # import misc
@@ -74,4 +74,8 @@ logging.debug('Logistic Regression accuracy: {}'.format(accuracy_score(y_test, y
 logging.debug('K Nearest Neighbours accuracy: {}'.format(accuracy_score(y_test, y_pred_KNN))) # 0.9708029197080292
 logging.debug('Support Vector Machine accuracy: {}'.format(accuracy_score(y_test, y_pred_SVM))) # 0.9562043795620438
 
-# KNN wins this round
+# Computing accuracy with k-fold cross validation
+accuracies_lr = cross_val_score(estimator=classifier_lr, X=X_train, y=y_train, cv=10)
+
+logging.debug('accuracies_lr.mean(): {}'.format(accuracies_lr.mean()))
+logging.debug('accuracies_lr.std(): {}'.format(accuracies_lr.std()))
