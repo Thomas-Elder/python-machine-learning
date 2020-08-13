@@ -55,6 +55,17 @@ y_pred_SVM = classifier_SVM.predict(X_test)
 
 # confusion matrix
 cm_lr = confusion_matrix(y_test, y_pred_lr)
+cm_KNN = confusion_matrix(y_test, y_pred_KNN)
+cm_SVM = confusion_matrix(y_test, y_pred_SVM)
+
 logging.debug('cm_lr: {}'.format(cm_lr)) 
-# [[87  0]
-# [50  0]]
+# [[84  3]
+# [3  47]]
+
+logging.debug('cm_KNN: {}'.format(cm_KNN)) 
+# [[84  3]
+# [1  49]]
+
+logging.debug('cm_SVM: {}'.format(cm_SVM)) 
+# [[83  4]
+# [2  48]]
