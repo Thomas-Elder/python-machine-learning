@@ -70,20 +70,20 @@ logging.debug('cm_SVM: {}'.format(cm_SVM))
 # [[83  4]
 # [2  48]]
 
-logging.debug('Logistic Regression accuracy: {}'.format(accuracy_score(y_test, y_pred_lr))) # 0.9562043795620438
-logging.debug('K Nearest Neighbours accuracy: {}'.format(accuracy_score(y_test, y_pred_KNN))) # 0.9708029197080292
-logging.debug('Support Vector Machine accuracy: {}'.format(accuracy_score(y_test, y_pred_SVM))) # 0.9562043795620438
+logging.debug('Logistic Regression accuracy: {:.2f}%'.format(accuracy_score(y_test, y_pred_lr)*100)) # 95.62%
+logging.debug('K Nearest Neighbours accuracy: {:.2f}%'.format(accuracy_score(y_test, y_pred_KNN)*100)) # 97.08%
+logging.debug('Support Vector Machine accuracy: {:.2f}%'.format(accuracy_score(y_test, y_pred_SVM)*100)) # 95.62%
 
 # Computing accuracy with k-fold cross validation
 accuracies_lr = cross_val_score(estimator=classifier_lr, X=X_train, y=y_train, cv=10)
 accuracies_KNN = cross_val_score(estimator=classifier_KNN, X=X_train, y=y_train, cv=10)
 accuracies_SVM = cross_val_score(estimator=classifier_SVM, X=X_train, y=y_train, cv=10)
 
-logging.debug('accuracies_lr.mean(): {}'.format(accuracies_lr.mean()))
-logging.debug('accuracies_lr.std(): {}'.format(accuracies_lr.std()))
+logging.debug('accuracies_lr.mean(): {:.2f}%'.format(accuracies_lr.mean()*100)) # 96.70%
+logging.debug('accuracies_lr.std(): {:.2f}%'.format(accuracies_lr.std()*100)) # 1.97%
 
-logging.debug('accuracies_KNN.mean(): {}'.format(accuracies_KNN.mean()))
-logging.debug('accuracies_KNN.std(): {}'.format(accuracies_KNN.std()))
+logging.debug('accuracies_KNN.mean(): {:.2f}%'.format(accuracies_KNN.mean()*100)) # 97.44%
+logging.debug('accuracies_KNN.std(): {:.2f}%'.format(accuracies_KNN.std()*100)) # 1.85%
 
-logging.debug('accuracies_SVM.mean(): {}'.format(accuracies_SVM.mean()))
-logging.debug('accuracies_SVM.std(): {}'.format(accuracies_SVM.std()))
+logging.debug('accuracies_SVM.mean(): {:.2f}%'.format(accuracies_SVM.mean()*100)) # 97.07%
+logging.debug('accuracies_SVM.std(): {:.2f}%'.format(accuracies_SVM.std()*100)) # 2.19%
