@@ -33,17 +33,19 @@ y = dataset.iloc[:, -1].values
 # split dataset
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
-# create and train model
-classifier = LogisticRegression(random_state=0)
-classifier.fit(X_train, y_train)
+# create models
+classifier_lr = LogisticRegression(random_state=0)
+
+# fit models
+classifier_lr.fit(X_train, y_train)
 
 # test model, the first record is [1000025,5,1,1,1,2,1,3,1,1,2], 
 # so we can pass the model these features: [1000025,5,1,1,1,2,1,3,1,1], and expect that it returns 2.
-logging.debug('classifier.predict([[1000025,5,1,1,1,2,1,3,1,1]]) == 2: {}'.format(classifier.predict([[1000025,5,1,1,1,2,1,3,1,1]]) == 2)) # [ True]
-y_pred = classifier.predict(X_test)
+logging.debug('classifier.predict([[1000025,5,1,1,1,2,1,3,1,1]]) == 2: {}'.format(classifier_lr.predict([[1000025,5,1,1,1,2,1,3,1,1]]) == 2)) # [ True]
+y_pred = classifier_lr.predict(X_test)
 
 # confusion matrix
-cm = confusion_matrix(y_test, y_pred)
-logging.debug('cm: {}'.format(cm)) 
+cm_lr = confusion_matrix(y_test, y_pred)
+logging.debug('cm: {}'.format(cm_lr)) 
 # [[87  0]
 # [50  0]]
