@@ -8,10 +8,17 @@
 # import libraries
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import train_test_split  
+
+# import classifiers
 from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+
+# import helpers
+from sklearn.model_selection import train_test_split  
 from sklearn.metrics import confusion_matrix, accuracy_score
 
+# import misc
 import os
 import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
