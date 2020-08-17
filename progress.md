@@ -227,3 +227,25 @@ I tried out SVM before watching the lecture, and got these results:
 [ 8 24]] - 8 incorrect buy predictions, 24 correct
 
 Accuracy 0.9 - number of correct predictions divided by total number of predictions, so 90% correct.
+
+# Day 11
+Kernel SVM
+So here we're looking at how we can use svm to classify non-linearly separable data (this is data which cannot be separated by a single line).
+
+We first looked at mapping data to a higher plane, where it would be possible to use a straight line to separate data. So if we had one dimensional data, we could project that into 2 dimensions with some arbitrary function, then draw a straight line which could separate that data. 
+
+This is computationally expensive, and there are trickier ways to do it which don't involve completing the mapping/unmapping. 
+
+Many types of kernel functions some:
+gaussian RBF Kernel (roughly bell shaped)
+Sigmoid kernel 
+Polynomial kernel
+
+This site has a reasonable one-two of the kernel trick:
+https://github.com/trthatcher/MLKernels.jl
+
+This is also a good read:
+https://towardsdatascience.com/the-kernel-trick-c98cdbcaeb3f
+
+More :
+https://towardsdatascience.com/kernel-function-6f1d2be6091
