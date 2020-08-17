@@ -280,3 +280,27 @@ Interestingly, increasing the training size (by setting test set to .2 instead o
 [[55  3]
  [ 1 21]]
 0.95
+
+# Day 12
+Bayes Theorem
+
+P(A|B) = P(B|A) * P(A)
+            P(B)
+
+The probability of A given some condition B is: the probability of that condition B, given A multiplied by the probability of A, all divided the probability of B.
+
+The example in the tutorial is you have two machines creating spanners. Machine 1 makes 30 per hour, machine 2 makes 20 per hour. Out of all the spanners produced, 1% are defective. And out of all the spanners produced, 50% of the defective spanners are from Machine 1/2. 
+
+What is the probability of any given spanner picked from Machine 2 being defective? 
+
+P(Defective | made by machine 2) = P(made by machine 2 | defective) * P(defective)
+                                            P(made by machine 2)
+
+P(made by machine 2 | defective) = 50% of defective spanners, are from machine 2
+P(defective) = 1% of spanners are defective
+P(made by machine 2) = 40% of spanners are made by machine 2
+
+P(Defective | made by machine 2) = 0.5 * 0.1
+                                      0.4
+
+P(Defective | made by machine 2) = 0.0125 or 1.25%
