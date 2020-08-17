@@ -35,7 +35,7 @@ X_train_scaled = sc.fit_transform(X_train)
 X_test_scaled = sc.transform(X_test)
 
 # Model
-classifier = SVC(kernel='linear', random_state=0)
+classifier = SVC(kernel='rbf', random_state=0)
 classifier.fit(X_train_scaled, y_train)
 
 # Predict range
@@ -54,11 +54,9 @@ print('y_pred_single:{}'.format(y_pred_single)) # predicted 0, no buy, correct
 # Create confusion matrix
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
-# [[66  2] - 66 correct nobuy predictions, 2 incorrect
-# [ 8 24]] - 8 incorrect buy predictions, 24 correct
 
 acc = accuracy_score(y_test, y_pred)
-print(acc) # 0.9 - number of correct predictions divided by total number of predictions, so 90% correct.
+print(acc)
 
 # Visualising the training set
 # Visualising the Training set results

@@ -249,3 +249,34 @@ https://towardsdatascience.com/the-kernel-trick-c98cdbcaeb3f
 
 More :
 https://towardsdatascience.com/kernel-function-6f1d2be6091
+
+Just ran this, I think,
+
+Using the rbf kernel, svm had a confusion matrix of:
+[[64  4] - 64 correct nobuy predictions, 4 incorrect
+[ 3 29]] - 3 incorrect buy predictions, 29 correct
+
+And an accuracy of 0.93, same as knn. 
+
+Let's try different kernels.
+
+Sigmoid:
+[[54 14]
+ [12 20]]
+0.74
+Ooooff
+
+Polynomial:
+[[67  1]
+ [13 19]]
+0.86
+
+Precomputed:
+"If a callable is given it is  
+    used to pre-compute the kernel matrix from data matrices; that matrix  
+    should be an array of shape `(n_samples, n_samples)`.  "
+
+Interestingly, increasing the training size (by setting test set to .2 instead of .25), get's us better results. This with rbf:
+[[55  3]
+ [ 1 21]]
+0.95
