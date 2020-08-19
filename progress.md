@@ -300,7 +300,17 @@ P(made by machine 2 | defective) = 50% of defective spanners, are from machine 2
 P(defective) = 1% of spanners are defective
 P(made by machine 2) = 40% of spanners are made by machine 2
 
-P(Defective | made by machine 2) = 0.5 * 0.1
+P(Defective | made by machine 2) = 0.5 * 0.01
                                       0.4
 
-P(Defective | made by machine 2) = 0.0125 or 1.25%
+P(Defective | made by machine 2) = 0.00125 or 1.25%
+
+Now just to make sure I've got this, the probability of any given spanner picked from Machine 1 being defective is:
+
+P(Defective | made by machine 1) = P(made by machine 1 | defective) * P(defective)
+                                            P(made by machine 1)
+
+P(Defective | made by machine 1) = 0.5 * 0.01
+                                      0.6
+
+P(Defective | made by machine 1) = 0.00833 or 0.83%
