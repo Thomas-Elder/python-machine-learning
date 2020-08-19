@@ -314,3 +314,11 @@ P(Defective | made by machine 1) = 0.5 * 0.01
                                       0.6
 
 P(Defective | made by machine 1) = 0.00833 or 0.83%
+
+Ok we used Gaussian Naive Bayes:
+y_pred_single:[0]
+[[65  3] 65 correct, 3 incorrect
+ [ 7 25]] 7 incorrect, 25 correct
+0.9
+
+Not the best so far.
