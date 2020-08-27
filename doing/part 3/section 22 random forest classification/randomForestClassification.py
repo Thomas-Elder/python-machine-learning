@@ -12,6 +12,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.naive_bayes import GaussianNB
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, accuracy_score
 
@@ -36,7 +37,7 @@ X_train_scaled = sc.fit_transform(X_train)
 X_test_scaled = sc.transform(X_test)
 
 # Model
-classifier = DecisionTreeClassifier(criterion='entropy', random_state=0)
+classifier = RandomForestClassifier(n_estimators=10, criterion='entropy', random_state=0)
 classifier.fit(X_train_scaled, y_train)
 
 # Predict range
@@ -71,7 +72,7 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Decision Tree Classification (Training set)')
+plt.title('Random Forest Classification (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -88,7 +89,7 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Decision Tree Classification (Test set)')
+plt.title('Random Forest Classification (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()

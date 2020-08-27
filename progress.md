@@ -322,3 +322,17 @@ y_pred_single:[0]
 0.9
 
 Not the best so far.
+
+# Day 13
+On to decision tree and random forest classification. 
+Decision tree:
+y_pred_single:[0]
+[[62  6]
+ [ 3 29]]
+0.91
+
+Random forest:
+y_pred_single:[0]
+[[63  5]
+ [ 4 28]]
+0.91
