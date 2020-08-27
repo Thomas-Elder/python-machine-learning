@@ -11,6 +11,7 @@ import pandas as pd
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.naive_bayes import GaussianNB
+from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, accuracy_score
 
@@ -35,7 +36,7 @@ X_train_scaled = sc.fit_transform(X_train)
 X_test_scaled = sc.transform(X_test)
 
 # Model
-classifier = GaussianNB()
+classifier = DecisionTreeClassifier()
 classifier.fit(X_train_scaled, y_train)
 
 # Predict range
