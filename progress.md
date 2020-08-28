@@ -336,3 +336,6 @@ y_pred_single:[0]
 [[63  5]
  [ 4 28]]
 0.91
+
+# Day 14 
+Putting them all together.
