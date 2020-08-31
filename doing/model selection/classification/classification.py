@@ -37,7 +37,7 @@ class Classification():
         acc = accuracy_score(self.y_test, y_pred)
 
         # if there are other measures we can add them here, print em all out later
-        self.scores.append({'accuracy': acc})
+        self.scores.append({'accuracy': round(acc*100,2)})
 
         return round(acc*100,2)
 
