@@ -338,4 +338,17 @@ y_pred_single:[0]
 0.91
 
 # Day 14 
-Putting them all together.
+Putting them all together into a classification app that runs all the models and determines best on the same dataset.
+
+Model Logistic Regression had result: 94.74%
+Model Linear SVC had result: 94.15%
+Model Kernel SVC had result: 95.32%
+Model KNN had result: 94.74%
+Model Naive Bayes had result: 94.15%
+Model Decision Tree Classifier had result: 95.91%
+Model Random Forest Classifier had result: 94.74%
+
+# Day 15
+Watched the set of videos on evaluating model performance. 
+
+There are confusion matrices which highlight correct and incorrect predictions. An accuracy score which is just correct/total predictions. And the CAP, or cumulative accuracy profile which compares the performance of the model to a random model, and a perfect model. The closer to the latter the better.
