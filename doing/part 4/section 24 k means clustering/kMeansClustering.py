@@ -15,10 +15,17 @@ X = dataset.iloc[:, [3, 4]].values
 # Basically look at the graph and where the angle of the wcss line flattens out is the point of diminishing returns.
 from sklearn.cluster import KMeans
 wcss = []
+
+# Now we compute the wcss for k clusters from k=1, 10.
 for i in range(1, 11):
     kmeans = KMeans(n_clusters = i, init = 'k-means++', random_state = 42)
     kmeans.fit(X)
     wcss.append(kmeans.inertia_)
+
+# We then plot these on a graph so we can see the turning point of fit. 
+# If you have as many clusters as data points, you'll have wcss =0. This would be obvious 
+# overfitting. With 1 cluster the wcss would be maximal. So it's about picking something
+# in the middle
 plt.plot(range(1, 11), wcss)
 plt.title('The Elbow Method')
 plt.xlabel('Number of clusters')
