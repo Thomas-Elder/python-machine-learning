@@ -33,6 +33,7 @@ plt.ylabel('WCSS')
 plt.show()
 
 # Training the K-Means model on the dataset
+# We're using 5 as that looked good on the graph.
 kmeans = KMeans(n_clusters = 5, init = 'k-means++', random_state = 42)
 y_kmeans = kmeans.fit_predict(X)
 
