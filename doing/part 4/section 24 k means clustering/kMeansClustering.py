@@ -5,6 +5,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestRegressor 
+
+import os
+import logging
+
 # Importing the dataset
 dataset = pd.read_csv('Mall_Customers.csv')
 
@@ -13,7 +20,6 @@ X = dataset.iloc[:, [3, 4]].values
 
 # Using the elbow method to find the optimal number of clusters
 # Basically look at the graph and where the angle of the wcss line flattens out is the point of diminishing returns.
-from sklearn.cluster import KMeans
 wcss = []
 
 # Now we compute the wcss for k clusters from k=1, 10.
@@ -52,4 +58,14 @@ plt.show()
 
 # todo
 # - run a regression of some sort on each column vs spending, to identify the most indicative feature
+logging.debug('cwd: %s' % (os.getcwd()))
+dataset = pandas.read_csv('Mall_Customers.csv')
+X = dataset.iloc[:, 1:-1].values
+y = dataset.iloc[:, -1].values
+
+regressor = RandomForestRegressor(n_estimators=10, random_state=0)
+regressor.fit(X, y)
+
+
+
 # - run kmeans on other features to see other clusters?
