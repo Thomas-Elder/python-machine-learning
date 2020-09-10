@@ -8,10 +8,11 @@ import statistics
 
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestRegressor 
 from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
+
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 
 # Imports to encode the categorical data
 from sklearn.compose import ColumnTransformer
@@ -39,7 +40,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 # Regress
 regressor = LinearRegression()
-#RandomForestRegressor(n_estimators=10, random_state=0)
 regressor.fit(X_train, y_train)
 
 # Predict
@@ -74,7 +74,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 # Regress
 regressor = LinearRegression()
-#RandomForestRegressor(n_estimators=10, random_state=0)
 regressor.fit(X_train, y_train)
 
 # Predict
@@ -107,12 +106,18 @@ y = dataset.iloc[:, -1].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
 # Regress
+poly = PolynomialFeatures(degree=1)
+X_poly = poly.fit_transform(X)
+X_train_poly = poly.fit_transform(X_train)
+X_test_poly = poly.fit_transform(X_test)
 regressor = LinearRegression()
-#RandomForestRegressor(n_estimators=10, random_state=0)
-regressor.fit(X_train, y_train)
+regressor.fit(X_train_poly, y_train)
+
+#regressor = LinearRegression()
+#regressor.fit(X_train, y_train)
 
 # Predict
-y_pred = regressor.predict(X_test)
+y_pred = regressor.predict(X_test_poly)
 
 # Test
 r2 = r2_score(y_test, y_pred)
@@ -122,7 +127,7 @@ print(f'r2: {r2}')
 # Visualise
 mean = [statistics.mean(y)] * len(X)
 plt.scatter(X, y, color = 'red')
-plt.plot(X, regressor.predict(X), color = 'blue')
+plt.plot(X, regressor.predict(X_poly), color = 'blue')
 plt.plot(X, mean, color = 'green')
 plt.title('Income vs Spending ')
 plt.xlabel('Income')
