@@ -11,6 +11,10 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import r2_score
 from sklearn.model_selection import train_test_split
 
+# Imports to encode the categorical data
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+
 import os
 import logging
 
@@ -61,12 +65,15 @@ plt.show()
 # todo
 # - run a regression of some sort on each column vs spending, to identify the most indicative feature
 # sex
+print()
 print(f'Column by column, firstly, sex')
 dataset = pd.read_csv('Mall_Customers.csv')
 X = dataset.iloc[:, 1:2].values
 y = dataset.iloc[:, -1].values
 
 # Need to convert the sex column into categories... #todo
+columnTransformer = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [0])], remainder='passthrough')
+X = np.array(columnTransformer.fit_transform(X))
 
 # Split into training and test set
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
@@ -82,6 +89,7 @@ y_pred = regressor.predict(X_test)
 r2 = r2_score(y_test, y_pred)
 
 print(f'r2: {r2}')
+
 # age
 
 # income
