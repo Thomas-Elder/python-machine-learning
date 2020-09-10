@@ -38,8 +38,8 @@ X = pd.get_dummies(data=X, drop_first=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
 # Regress
-# LinearRegression()
-regressor = RandomForestRegressor(n_estimators=10, random_state=0)
+regressor = LinearRegression()
+#RandomForestRegressor(n_estimators=10, random_state=0)
 regressor.fit(X_train, y_train)
 
 # Predict
@@ -73,7 +73,8 @@ y = dataset.iloc[:, -1].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
 # Regress
-regressor = RandomForestRegressor(n_estimators=10, random_state=0)
+regressor = LinearRegression()
+#RandomForestRegressor(n_estimators=10, random_state=0)
 regressor.fit(X_train, y_train)
 
 # Predict
@@ -83,6 +84,17 @@ y_pred = regressor.predict(X_test)
 r2 = r2_score(y_test, y_pred)
 
 print(f'r2: {r2}')
+print(f'mean: {statistics.mean(y)}')
+
+# Visualise
+mean = [statistics.mean(y)] * len(X)
+plt.scatter(X, y, color = 'red')
+plt.plot(X, regressor.predict(X), color = 'blue')
+plt.plot(X, mean, color = 'green')
+plt.title('Age vs Spending ')
+plt.xlabel('Age')
+plt.ylabel('Spending')
+plt.show()
 
 # income
 print()
@@ -95,7 +107,8 @@ y = dataset.iloc[:, -1].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
 # Regress
-regressor = RandomForestRegressor(n_estimators=10, random_state=0)
+regressor = LinearRegression()
+#RandomForestRegressor(n_estimators=10, random_state=0)
 regressor.fit(X_train, y_train)
 
 # Predict
@@ -105,5 +118,15 @@ y_pred = regressor.predict(X_test)
 r2 = r2_score(y_test, y_pred)
 
 print(f'r2: {r2}')
+
+# Visualise
+mean = [statistics.mean(y)] * len(X)
+plt.scatter(X, y, color = 'red')
+plt.plot(X, regressor.predict(X), color = 'blue')
+plt.plot(X, mean, color = 'green')
+plt.title('Income vs Spending ')
+plt.xlabel('Income')
+plt.ylabel('Spending')
+plt.show()
 
 # - run kmeans on other features to see other clusters?
