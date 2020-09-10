@@ -4,6 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import statistics
 
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
@@ -36,12 +37,9 @@ X = pd.get_dummies(data=X, drop_first=True)
 # Split into training and test set
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
 
-print(X_train)
-print(y_train)
-
 # Regress
-regressor = LinearRegression()
-#RandomForestRegressor(n_estimators=10, random_state=0)
+# LinearRegression()
+regressor = RandomForestRegressor(n_estimators=10, random_state=0)
 regressor.fit(X_train, y_train)
 
 # Predict
@@ -52,15 +50,14 @@ r2 = r2_score(y_test, y_pred)
 
 print(f'r2: {r2}')
 
-print(X)
-print(y)
-
 # Visualise
+mean = [statistics.mean(y)] * len(X)
 plt.scatter(X, y, color = 'red')
 plt.plot(X, regressor.predict(X), color = 'blue')
-plt.title('Salary vs Job Level - Simple Linear')
-plt.xlabel('Level of Job')
-plt.ylabel('Salary')
+plt.plot(X, mean, color = 'green')
+plt.title('Gender vs Spending ')
+plt.xlabel('Gender, 1=Male, 0=Female')
+plt.ylabel('Spending')
 plt.show()
 
 # age
