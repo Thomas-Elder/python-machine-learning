@@ -57,3 +57,34 @@ plt.xlabel('Annual Income (k$)')
 plt.ylabel('Spending Score (1-100)')
 plt.legend()
 plt.show()
+
+# todo
+# - run a regression of some sort on each column vs spending, to identify the most indicative feature
+# sex
+print(f'Column by column, firstly, sex')
+dataset = pd.read_csv('Mall_Customers.csv')
+X = dataset.iloc[:, 1:2].values
+y = dataset.iloc[:, -1].values
+
+# Need to convert the sex column into categories... #todo
+
+# Split into training and test set
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
+
+# Regress
+regressor = RandomForestRegressor(n_estimators=10, random_state=0)
+regressor.fit(X_train, y_train)
+
+# Predict
+y_pred = regressor.predict(X_test)
+
+# Test
+r2 = r2_score(y_test, y_pred)
+
+print(f'r2: {r2}')
+# age
+
+# income
+
+
+# - run kmeans on other features to see other clusters?
