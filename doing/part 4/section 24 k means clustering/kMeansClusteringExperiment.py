@@ -51,6 +51,8 @@ r2 = r2_score(y_test, y_pred)
 print(f'r2: {r2}')
 
 # Visualise
+# From this we can see why the r2 is negative, the line is worse than average. 
+# I think I've got some dimension of the data incorrect here...
 mean = [statistics.mean(y)] * len(X)
 plt.scatter(X, y, color = 'red')
 plt.plot(X, regressor.predict(X), color = 'blue')
